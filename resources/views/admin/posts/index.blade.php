@@ -29,13 +29,20 @@
                 <td>{{str_limit($post->body,20)}}</td>
                 <td>{{$post->created_at->diffForHumans()}}</td>
                 <td>{{$post->updated_at->diffForHumans()}}</td>
+                <td><a href="{{route('home.post',$post->slug)}}">View post</a></td>
+                <td><a href="{{route('admin.comments.show',$post->id)}}">View Comments</a></td>
             </tr>
           @endforeach
         @endif
     </tbody>
 </table>
 
+<div class="row">
+    <div class="col-sm-6 col-sm-offset-5">
 
+        {{$posts->render()}}
+    </div>
+</div>
 
 
 
